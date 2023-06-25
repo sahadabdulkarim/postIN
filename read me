@@ -1,0 +1,3 @@
+the app is a image posting app. only authenticated user can post images 
+the authenticated user can assess his own home page
+the users who are not authenticated can see the feed page where the images are shown
