@@ -1,0 +1,21 @@
+{% extends 'authentication/base.html' %}
+
+{% block title %}Feed{% endblock %}
+
+{% block content %}
+  <h1>Feed</h1>
+  {% for post in posts %}
+    <div class="card mb-3" style="max-width: 400px;"> <!-- Set a maximum width for the card -->
+      <div class="card-header">
+        <h5>{{ post.title }}</h5>
+        <p>Posted by: {{ post.user.username }}</p> <!-- Display the username of the user who posted the image -->
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{ post.description }}</p>
+        <p class="card-text">Created at: {{ post.created_date }}</p>
+        <img src="{{ post.image.url }}" alt="Post Image" class="img-fluid" style="max-width: 100%; height: auto;">
+        <!-- Add a style attribute to control the image size -->
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

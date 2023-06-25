@@ -1,0 +1,24 @@
+{% extends 'authentication/base.html' %}
+{% block title%}POSTin{%endblock%}
+{% block content%}
+    {% if username %}
+    <h1 class="text-center">Hi, {{ username }}</h1>
+    {% else %}
+    <h1 class="text-center">Welcome to POSTin</h1>
+    {% endif %}
+    {% for post in posts %}
+    <div class="card mb-3" style="max-width: 400px;">
+        <div class="card-header">
+            <h5>{{ post.title }}</h5>
+            <p>Posted by: {{ post.user.username }}</p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ post.description }}</p>
+            <p class="card-text">Created at: {{ post.created_date }}</p>
+            <img src="{{ post.image.url }}" alt="Post Image" class="img-fluid" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+    {% empty %}
+    <p>No posts yet.</p>
+    {% endfor %}
+{% endblock %}
